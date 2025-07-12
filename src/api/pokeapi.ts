@@ -17,7 +17,8 @@ export function usePokeApi() {
 export function usePokemonDetails(name: string) {
   const { data, error, isLoading } = useSWR(
     `https://pokeapi.co/api/v2/pokemon/${name}`,
-    fetcher
+    fetcher,
+    { suspense: true }
   );
   return {
     data: data,
