@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { usePokeApi } from "../api/pokeapi";
 import PokeCard from "../components/card";
-import { Suspense } from "react";
+import { Suspense, useState } from "react";
 import Loading from "../components/loading";
 
 interface Pokemon {
@@ -14,7 +14,8 @@ export const Route = createFileRoute("/")({
 });
 
 function RouteComponent() {
-  const { data, isLoading, isError } = usePokeApi();
+  const [pageIndex, setPageIndex] = useState<number>(0);
+  const { data, isLoading, isError } = usePokeApi(pageIndex);
   if (isLoading) return <div>Loading...pokemons</div>;
   if (isError) return <div>Error loading data</div>;
 
