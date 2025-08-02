@@ -17,7 +17,7 @@ export const Route = createRootRoute({
         <img src={PokemonLogo} alt="Pokemon Logo" />
       </div>
 
-      <div className="flex flex-wrap items-center mx-[200px] my-[40px]">
+      <div>
         <Outlet />
       </div>
 
